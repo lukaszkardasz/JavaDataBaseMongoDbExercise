@@ -26,9 +26,10 @@ public class MongoMain {
 
         //UPDATE OBIEKTU
         //dodajemuy nwy dokument bo wszystko co jest w zapytaniu pomiedzy {} nawiasami to obiekty-dokumenty
-        BasicDBObject query = new BasicDBObject("name","Joli");
+        BasicDBObject query = new BasicDBObject("name","Ona już nie tańczy dla mnie");
         BasicDBObject updateObj = new BasicDBObject("$set",newValue);
-        songs.update(query, updateObj);
+        WriteResult update = songs.update(query, updateObj);
+        System.out.println(update);
 
 
         DBCursor allSongs = songs.find();
