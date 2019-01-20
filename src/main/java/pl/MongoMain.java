@@ -1,4 +1,4 @@
-package sda.pl;
+package pl;
 
 import com.mongodb.*;
 
