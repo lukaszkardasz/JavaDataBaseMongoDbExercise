@@ -15,10 +15,21 @@ public class MongoMain {
         DBCollection songs = database.getCollection("songs");
         BasicDBObject document = new BasicDBObject();
         //dodanie nowych piosenek do bazy
-        document.put("name","Who want to live forever");
+        /*document.put("name","Who want to live forever");
         document.put("length",3.22);
         document.put("date","2019-01-19T00:00:00:000Z");
-        songs.insert(document);
+        songs.insert(document);*/
+
+        //Definiujemy dokumenty do wyszukiwania
+        BasicDBObject newValue = new BasicDBObject();
+        newValue.put("lenght",10.10);
+
+        //UPDATE OBIEKTU
+        //dodajemuy nwy dokument bo wszystko co jest w zapytaniu pomiedzy {} nawiasami to obiekty-dokumenty
+        BasicDBObject query = new BasicDBObject("name","Joli");
+        BasicDBObject updateObj = new BasicDBObject("$set",newValue);
+        songs.update(query, updateObj);
+
 
         DBCursor allSongs = songs.find();
         System.out.println("List of songs");
